@@ -1,3 +1,4 @@
+
 tests:
 	python3 -m unittest discover -s test/ -p "*_test.py"
 
@@ -6,3 +7,6 @@ package:
 
 all:
 	tests package
+
+upload:
+	twine upload dist/*
