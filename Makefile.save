@@ -1,4 +1,3 @@
-
 tests:
 	python3 -m unittest discover -s test/ -p "*_test.py"
 
@@ -9,9 +8,4 @@ all:
 	tests package
 
 upload:
-	twine upload dist/*
-
-coverage:
-	coverage run -m unittest discover -s test/ -p "*_test.py"
-	coverage report -m
-	coverage html
+	License :: OSI Approved :: MIT License
