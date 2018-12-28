@@ -1,10 +1,11 @@
 # json_repository
-A simple json repository
+![travis build](https://img.shields.io/travis/:mandrewcito/:json_repository.svg)
+![Pypi](https://img.shields.io/pypi/v/json-repository.svg)
+![Pypi - downloads month](https://img.shields.io/pypi/dm/json-repository.svg)
 
 # Install
 
-[https://pypi.org/project/json-repository/](Pypi) 
-
+[https://pypi.org/project/json-repository/](Pypi)
 pip install json-repository
 
 # Examples
