@@ -1,2 +1,2 @@
 class EntityNotFound(ValueError):
-  pass
+    pass

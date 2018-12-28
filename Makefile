@@ -13,5 +13,15 @@ upload:
 
 coverage:
 	coverage run -m unittest discover -s test/ -p "*_test.py"
-	coverage report -m
-	coverage html
+	coverage html -d coverage_html
+	firefox coverage_html/index.html
+
+clean:
+	@find . -name "*.pyc" -exec rm -f '{}' +
+	@find . -name "*~" -exec rm -f '{}' +
+	@find . -name "__pycache__" -exec rm -R -f '{}' +
+	@rm -rf build/*
+	@rm -rf coverage_html/*
+	@rm -rf dist/*
+	@rm -rf json_repository.egg-info/*
+	@echo "Done!"

@@ -1,17 +1,19 @@
 import unittest
 import os
-from json_repository.repositories.base_json_repository import BaseJsonRepository
+from json_repository.repositories.base_json_repository\
+    import BaseJsonRepository
 from json_repository.errors.entity_not_found import EntityNotFound
 
+
 class FoobarRepository(BaseJsonRepository):
-  def __init__(self):
-    super(FoobarRepository, self).__init__("foo")
+    def __init__(self):
+        super(FoobarRepository, self).__init__("foo")
 
 
 class TestStringMethods(unittest.TestCase):
     def setUp(self):
         pass
-    
+
     def tearDown(self):
         """
             ensure db is empty at the end.
@@ -34,7 +36,7 @@ class TestStringMethods(unittest.TestCase):
         with FoobarRepository() as repo:
             value = repo.insert({
                 "foo": "a foo value",
-                "bar":" a bar value"
+                "bar": " a bar value"
             })
             repo.context.commit()
         val2 = None
@@ -51,8 +53,8 @@ class TestStringMethods(unittest.TestCase):
                 "bar": " a bar value"
             })
             repo.context.commit()
-        value["foo"] =" a new foo value"
-        
+        value["foo"] = " a new foo value"
+
         with FoobarRepository() as repo:
             repo.update(value)
             repo.context.commit()
