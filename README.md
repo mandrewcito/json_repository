@@ -10,7 +10,7 @@ pip install json-repository
 
 # Examples
 
-You can also go to [tests]("./test/sample/foobar_test.py") to check a good how-to !
+You can also go to [tests](test/sample/foobar_test.py) to check a good how-to !
  
 ## Creating custom repository 
 
