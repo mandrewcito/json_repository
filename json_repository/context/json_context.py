@@ -4,7 +4,7 @@ import uuid
 import threading
 
 from ..errors.entity_not_found import EntityNotFound
-
+from ..errors.more_than_one_result import MoreThanOneResult
 
 class JsonContext(object):
     def __init__(
@@ -66,8 +66,25 @@ class JsonContext(object):
                         "values": self.session_values
                     }))
 
-    def find(self, query_function):
+    def find(self, query_function=None):
+        if query_function is None:
+            return self.session_values
         return list(filter(query_function, self.session_values))
+
+    def first( self, query_function):
+        values = self.find(query_function=query_function)
+        return  None if len(values) == 0 else values[0]
+
+    def single( self, query_function):
+        values = self.find(query_function=query_function)
+
+        if len(values) is 0:
+            raise EntityNotFound()
+
+        if len(values) is not 1:
+            raise MoreThanOneResult()
+
+        return values[0]
 
     def get(self, identifier):
         if not self.exists(identifier):

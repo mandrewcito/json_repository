@@ -3,7 +3,7 @@ import os
 from json_repository.repositories.base_json_repository\
     import BaseJsonRepository
 from json_repository.errors.entity_not_found import EntityNotFound
-
+from json_repository.errors.more_than_one_result import MoreThanOneResult
 
 class FoobarRepository(BaseJsonRepository):
     def __init__(self):
@@ -121,3 +121,79 @@ class TestStringMethods(unittest.TestCase):
             self.assertEqual(
                 value,
                 repo.find(lambda x: x["foo"] == value["foo"])[0])
+
+
+    def test_single(self):
+        with FoobarRepository() as repo:
+            value = repo.insert({
+                "foo": "myuniquefoovalue",
+                "bar": " a bar value"
+            })
+            repo.context.commit()
+
+        with FoobarRepository() as repo:
+            self.assertEqual(
+                value,
+                repo.single(lambda x: x["foo"] == value["foo"]))
+
+    def test_single_not_found(self):
+        with FoobarRepository() as repo:
+            value = repo.insert({
+                "foo": "myuniquefoovalue",
+                "bar": " a bar value"
+            })
+            repo.context.commit()
+        with self.assertRaises(EntityNotFound):
+            with FoobarRepository() as repo:
+                self.assertEqual(
+                    value,
+                    repo.single(lambda x: x["foo"] == "myvaluenotexists"))
+
+    def test_single_morethanoneresult(self):
+        with FoobarRepository() as repo:
+            value = repo.insert({
+                "foo": "myuniquefoovalue",
+                "bar": " a bar value"
+            })
+            value = repo.insert({
+                "foo": "myuniquefoovalue",
+                "bar": " a bar value"
+            })
+            repo.context.commit()
+        with self.assertRaises(MoreThanOneResult):
+            with FoobarRepository() as repo:
+                self.assertEqual(
+                    value,
+                    repo.single(lambda x: x["foo"] == value["foo"]))
+
+    def test_first_not_exists(self):
+        with FoobarRepository() as repo:
+            self.assertEqual(
+                None,
+                repo.first(lambda x: x["foo"] == "randomvalue"))
+
+    def test_first_with_fun(self):
+        with FoobarRepository() as repo:
+            value = repo.insert({
+                "foo": "aaaaaaa1",
+                "bar": "aaaai"
+            })
+            repo.context.commit()
+
+        with FoobarRepository() as repo:
+            self.assertEqual(
+                value,
+                repo.first(lambda x: x["foo"] == value["foo"]))
+
+    def test_first(self):
+        with FoobarRepository() as repo:
+            value = repo.insert({
+                "foo": "aaaaaaa1",
+                "bar": "aaaai"
+            })
+            repo.context.commit()
+
+        with FoobarRepository() as repo:
+            self.assertEqual(
+                value,
+                repo.first())

@@ -29,3 +29,9 @@ class BaseJsonRepository(object):
 
     def find(self, function):
         return self.context.find(function)
+
+    def first(self, function=None):
+        return self.context.first(function)
+
+    def single(self, function=None):
+        return self.context.single(function)
