@@ -5,10 +5,11 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="json_repository",
-    version="0.1.1",
+    version="0.2.0",
     author="mandrewcito",
     author_email="anbaalo@gmail.com",
     description="A simple json repository",
+    keywords="json repository typed",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/mandrewcito/json_repository",
