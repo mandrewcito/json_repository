@@ -9,7 +9,7 @@ all:
 	tests package
 
 upload:
-	twine upload dist/*
+	twine upload dist/* --verbose
 
 coverage:
 	coverage run -m unittest discover -s test/ -p "*_test.py"
