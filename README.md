@@ -1,6 +1,6 @@
 # json_repository
 
-![travis build](https://img.shields.io/travis/:mandrewcito/:json_repository.svg)
+![travis build](https://img.shields.io/travis/mandrewcito/json_repository.svg)
 ![Pypi](https://img.shields.io/pypi/v/json-repository.svg)
 ![Pypi - downloads month](https://img.shields.io/pypi/dm/json-repository.svg)
 
