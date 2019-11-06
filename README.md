@@ -1,5 +1,5 @@
 # json_repository
-
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal&style=flat-square)](https://www.paypal.me/mandrewcito/1)&nbsp;
 ![travis build](https://img.shields.io/travis/mandrewcito/json_repository.svg)
 ![Pypi](https://img.shields.io/pypi/v/json-repository.svg)
 ![Pypi - downloads month](https://img.shields.io/pypi/dm/json-repository.svg)
