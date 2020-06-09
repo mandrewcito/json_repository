@@ -3,7 +3,7 @@
 ![travis build](https://img.shields.io/travis/mandrewcito/json_repository.svg)
 ![Pypi](https://img.shields.io/pypi/v/json-repository.svg)
 ![Pypi - downloads month](https://img.shields.io/pypi/dm/json-repository.svg)
-
+![codecov.io](https://codecov.io/github/mandrewcito/json-repository/coverage.svg?branch=master)
 
 # Install
 
