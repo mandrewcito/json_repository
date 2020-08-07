@@ -2,7 +2,8 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal&style=flat-square)](https://www.paypal.me/mandrewcito/1)&nbsp;
 ![travis build](https://img.shields.io/travis/mandrewcito/json_repository.svg)
 ![Pypi](https://img.shields.io/pypi/v/json-repository.svg)
-![Pypi - downloads month](https://img.shields.io/pypi/dm/json-repository.svg)
+[![Downloads](https://pepy.tech/badge/json-repository)](https://pepy.tech/project/json-repository)
+[![Downloads](https://pepy.tech/badge/json-repository/month)](https://pepy.tech/project/json-repository/month)
 ![codecov.io](https://codecov.io/github/mandrewcito/json_repository/coverage.svg?branch=master)
 
 # Install
