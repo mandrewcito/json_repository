@@ -155,10 +155,10 @@ class JsonContext(object):
         """
         values = self.find(query_function=query_function)
 
-        if len(values) is 0:
+        if len(values) == 0:
             raise EntityNotFound()
 
-        if len(values) is not 1:
+        if len(values) != 1:
             raise MoreThanOneResult()
 
         return values[0]
