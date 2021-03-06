@@ -180,3 +180,17 @@ class TestStringMethods(unittest.TestCase):
             self.assertEqual(
                 value,
                 repo.first())
+
+    def test_exists(self):
+        with FoobarRepository() as repo:
+            value = repo.insert(self.get_foo())
+            va = self.get_foo()
+            va.bar = "22"
+            repo.insert(va)
+            repo.context.commit()
+
+        with FoobarRepository() as repo:
+            self.assertTrue(
+                repo.exists(va.id))
+            self.assertFalse(
+                repo.exists(234))
